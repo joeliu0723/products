@@ -2,6 +2,8 @@
 products = []
 with open('products.csv','r',encoding = 'utf-8') as f:
 	for line in f:
+		if '商品,價格' in line:
+			continue #跳過有商品價格那欄,直接往下執行
 		name , price = line.strip().split(',')#已經list有兩欄,所以直接將name與price一起被指定. 等號後面是先去掉換行符號(strip),再切從有逗號的段落切斷(spilt)
 		products.append([name, price]) #以二維list的方式將兩欄直接加進list裡
 print(products)
