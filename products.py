@@ -6,7 +6,7 @@ while True:
 	price = input('請輸入價格: ')
 	products.append([name, price])
 
-print(products)
-
-for p in products:
-	print(p[0], '的價格是: ',p[1])
+with open('products.csv','w') as f:
+	for p in products:
+		f.write(p[0] + ',' +p[1]+'\n')
+	
